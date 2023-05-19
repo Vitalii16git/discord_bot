@@ -8,6 +8,7 @@ const jobSchema = new mongoose.Schema({
   refId: {
     type: String,
     required: true,
+    unique: true,
   },
   title: {
     type: String,
