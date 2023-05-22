@@ -1,7 +1,6 @@
 {
   "name": "discord_bot",
   "version": "1.0.0",
-  "description": "",
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon src/index.js"
@@ -14,12 +13,16 @@
     "discord.js": "^14.11.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "install": "^0.13.0",
+    "migrate-mongoose": "^4.0.0",
     "mongodb": "^5.5.0",
     "mongoose": "^7.1.1",
     "node-cron": "^3.0.2",
+    "npm": "^9.6.7",
     "puppeteer": "^20.2.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
-  }
+  },
+  "description": ""
 }

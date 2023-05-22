@@ -11,24 +11,29 @@ class JobParser {
         refId,
       });
 
-      return !jobFromBD.length
-        ? await job.save()
-        : console.log(`job with refId "${refId}" present in Data Base`);
+      if (!jobFromBD.length) {
+        console.log(`job with refId "${refId}" present in Data Base`);
+        return;
+      }
+
+      return job.save();
     });
+    return;
   }
+
   async updateJobs(siteName) {
     const arrayOfJobs = await jobParserMiddleware(siteName);
 
     await arrayOfJobs.forEach(async (job) => {
       const {
         _id,
-        _doc: { _id: docId, refId, ...updateData },
+        _doc: { _id: docId, refId, createdAt, ...updateData },
       } = job;
 
-      await Job.findOneAndUpdate({ refId }, updateData, {
-        new: true,
-      });
+      await Job.findOneAndUpdate({ refId }, updateData);
+      return;
     });
+    return;
   }
 }
 
